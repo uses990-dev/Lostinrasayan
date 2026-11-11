@@ -36,6 +36,7 @@ h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;margin:0 0 8px}
 .vid{display:block;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .25s,border-color .25s}
 a.vid:hover{transform:translateY(-6px) rotate(-.6deg);border-color:var(--sun)}
 .vid svg{display:block;width:100%;height:160px;background:rgba(var(--dot),.06)}
+.vid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:rgba(var(--dot),.06)}
 .vid .t{padding:16px 18px 20px}
 .vid h3{margin:0 0 6px;font-size:1.15rem;line-height:1.25}
 .vid small{color:var(--mute);font-size:.95rem}
@@ -78,10 +79,10 @@ footer{padding:40px 6vw;color:var(--mute);border-top:1px solid var(--line);text-
    3. Add social links later in SOCIALS. */
 const CHANNEL_URL = "https://www.youtube.com/@lostinrasayan";
 const VIDEOS = [
-  { title: "Video 1", url: "https://youtu.be/rrcFQSinQYE", topic: "Watch on YouTube" },
-  { title: "Video 2", url: "https://youtu.be/PiZAJsz8ho8", topic: "Watch on YouTube" },
-  { title: "Video 3", url: "https://youtu.be/0koJT2WRwkQ", topic: "Watch on YouTube" },
-  { title: "Video 4", url: "https://youtu.be/5w9yOPBcS7A", topic: "Watch on YouTube" }
+  { title: "Video 1", url: "https://youtu.be/rrcFQSinQYE", topic: "Watch on YouTube", thumb: "https://i.ytimg.com/vi/rrcFQSinQYE/hqdefault.jpg" },
+  { title: "Video 2", url: "https://youtu.be/PiZAJsz8ho8", topic: "Watch on YouTube", thumb: "https://i.ytimg.com/vi/PiZAJsz8ho8/hqdefault.jpg" },
+  { title: "Video 3", url: "https://youtu.be/0koJT2WRwkQ", topic: "Watch on YouTube", thumb: "https://i.ytimg.com/vi/0koJT2WRwkQ/hqdefault.jpg" },
+  { title: "Video 4", url: "https://youtu.be/5w9yOPBcS7A", topic: "Watch on YouTube", thumb: "https://i.ytimg.com/vi/5w9yOPBcS7A/hqdefault.jpg" }
 ];
 const SOCIALS = [
   // { name: "Instagram", url: "https://instagram.com/..." },
@@ -106,7 +107,8 @@ function art(seed) {
 }
 
 $("grid").innerHTML = VIDEOS.map((v, i) => {
-  const inner = `${art(i + 3)}<div class="t"><h3></h3><small></small></div>`;
+  const thumb = v.thumb ? '<img src="' + v.thumb + '" alt="" loading="lazy">' : art(i + 3);
+  const inner = `${thumb}<div class="t"><h3></h3><small></small></div>`;
   const el = document.createElement(v.url ? "a" : "div");
   el.className = "vid" + (v.url ? "" : " off");
   if (v.url) { el.href = v.url; el.target = "_blank"; el.rel = "noopener"; }
