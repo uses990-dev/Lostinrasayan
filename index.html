@@ -48,6 +48,7 @@ footer{padding:40px 6vw;color:var(--mute);border-top:1px solid var(--line);text-
 @keyframes brandGlow{from{box-shadow:0 0 0 rgba(255,194,71,0)}to{box-shadow:0 0 34px rgba(255,194,71,.38)}}
 @keyframes drift{from{background-position:0% 50%}to{background-position:100% 50%}}
 .hero{padding-top:clamp(158px,24vh,196px)}
+.hero .brand{position:absolute!important;width:max-content;max-width:92vw;align-self:flex-start;z-index:3}
 .brand{font-weight:800;font-size:clamp(2.5rem,8.5vw,4rem);letter-spacing:.05em;line-height:1.05;color:var(--sun);position:absolute;top:34px;left:5vw;padding:14px 26px;border:3px solid var(--sun);border-radius:999px;background:rgba(4,3,13,.72);animation:rise .8s cubic-bezier(.22,1,.36,1) both,brandGlow 2.6s ease-in-out 1s infinite alternate}
 .hero h1{letter-spacing:-.015em;line-height:.98;margin:0 0 28px;animation:rise .95s cubic-bezier(.22,1,.36,1) .12s both}
 .hero h1 span{background:linear-gradient(90deg,var(--glass),#b8f4ff,var(--glass));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:drift 5s ease-in-out infinite alternate}
